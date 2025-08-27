@@ -82,7 +82,7 @@ cd ${SPIDER_INSTALL_DIR}/perl && \
 sleep 5 # Give time for the cluster to startup
 
 #ttyd start sysop console on 8080 with ui 1000 for spider 
-ttyd -p ${CLUSTER_SYSOP_PORT} -u 1000 -t fontSize=16 -c ${CLUSTER_DBUSER}:${CLUSTER_DBPASS} perl /spider/perl/console.pl
+ttyd -p ${CLUSTER_SYSOP_PORT} -W -u 1000 -t fontSize=16 -c ${CLUSTER_DBUSER}:${CLUSTER_DBPASS} perl /spider/perl/console.pl
 
 
 
