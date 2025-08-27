@@ -16,13 +16,13 @@
 # Refactoring build, keep git, add ttyd for sysop webconsole 
 # Add copy of connect scripts, cronjobs and motd files 
 
-
-FROM alpine:latest
+# Alpine 3.20 locked until GCC 14 error in DXspider is fixed
+FROM alpine:3.20
 
 
 ARG SPIDER_GIT_REPOSITORY=git://scm.dxcluster.org/scm/spider
 # SPIDER_VERSION can be "mojo" or "master"
-ARG SPIDER_VERSION=master
+ARG SPIDER_VERSION=mojo
 
 ARG SPIDER_INSTALL_DIR=${SPIDER_INSTALL_DIR:-/spider}
 ARG SPIDER_USERNAME=${SPIDER_USERNAME:-sysop}
@@ -58,6 +58,7 @@ RUN apk update \
     perl-dbd-mysql \ 
     perl-dbi musl \ 
     perl-net-cidr-lite \
+    perl-file-copy-recursive \
     make \
     musl-dev \
     ncurses-dev \
@@ -96,6 +97,12 @@ COPY startup ${SPIDER_INSTALL_DIR}/scripts
 
 # Copy crontab
 COPY crontab ${SPIDER_INSTALL_DIR}/local_cmd
+
+# Copy update script
+COPY update_git.pl ${SPIDER_INSTALL_DIR}/local_cmd
+
+# Copy update script
+COPY node_mgmt.pl ${SPIDER_INSTALL_DIR}/local_cmd
 
 # Permissions for spider 
 RUN chown -R ${SPIDER_USERNAME}:${SPIDER_USERNAME} ${SPIDER_INSTALL_DIR}/.

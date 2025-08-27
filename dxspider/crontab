@@ -3,6 +3,9 @@
 # Uncomment to activate
 #0,5,10,20,30,40,50 * * * * start_connect('othernode-1') unless connected('othernode-1')
 
+# Run update git command once a day
+#0 4 * * 1,2,3,4,5 run_cmd(“update_git Y”)
+
 # Not in use
 # Update stats for mrtg (At minute 0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, and 55)
 #00,05,10,15,20,25,30,35,40,45,50,55 * * * * run_cmd('mrtg all')

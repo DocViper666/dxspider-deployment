@@ -15,8 +15,6 @@
 # Changes by Joe Fellner OE5JFE <oe5jfe <at> oevsv <dot> at>
 # DXSpider with Adminwebconsole , MariaDB, Webviewer of latest spots
 
-version: "3.9"
-
 services:
   cluster:
     build:
@@ -64,7 +62,7 @@ services:
     expose:
       - ${CLUSTER_PORT} # DXSpider Cluster
       - ${CLUSTER_SYSOP_PORT} # Sysop Console via ttyd
-    #restart: unless-stopped
+    restart: unless-stopped # Needed to make sure post git update to restart container
     logging:
       driver: "json-file"
       options:

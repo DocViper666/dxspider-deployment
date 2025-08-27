@@ -4,6 +4,9 @@
 # set maximum no of spots allowed to 100
 #set/var $Spot::maxspots = 100
 
+# Load custom script at startup
+load/cmd
+
 # connect scripts to call at startup. Update also in crontab
 
 #set/spider othernode-1
