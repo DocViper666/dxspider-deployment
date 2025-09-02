@@ -16,8 +16,8 @@
 # Refactoring build, keep git, add ttyd for sysop webconsole 
 # Add copy of connect scripts, cronjobs and motd files 
 
-# Alpine 3.20 locked until GCC 14 error in DXspider is fixed
-FROM alpine:3.20
+
+FROM alpine:latest
 
 
 ARG SPIDER_GIT_REPOSITORY=git://scm.dxcluster.org/scm/spider
@@ -72,7 +72,7 @@ RUN apk update \
     && mkdir -p ${SPIDER_INSTALL_DIR}/local ${SPIDER_INSTALL_DIR}/local_cmd ${SPIDER_INSTALL_DIR}/local_data \
     && find ${SPIDER_INSTALL_DIR}/. -type d -exec chmod 2775 {} \; \ 
     && find ${SPIDER_INSTALL_DIR}/. -type f -name '*.pl' -exec chmod 775 {} \; \
-    && (cd ${SPIDER_INSTALL_DIR}/src && make) \
+    #&& (cd ${SPIDER_INSTALL_DIR}/src && make) \
     && apk del --purge \
     gcc \
     make \
