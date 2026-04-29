@@ -20,7 +20,7 @@
 FROM alpine:latest
 
 
-ARG SPIDER_GIT_REPOSITORY=git://scm.dxcluster.org/scm/spider
+ARG SPIDER_GIT_REPOSITORY=git://scm.dxspider.org/spider
 # SPIDER_VERSION can be "mojo" or "master"
 ARG SPIDER_VERSION=mojo
 
