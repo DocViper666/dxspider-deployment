@@ -57,6 +57,7 @@ RUN apk update \
     mysql-dev \
     perl-dbd-mysql \ 
     perl-dbi musl \ 
+    perl-cpan-sqlite \
     perl-net-cidr-lite \
     perl-file-copy-recursive \
     make \
