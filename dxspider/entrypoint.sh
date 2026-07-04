@@ -64,9 +64,9 @@ sed -e "s/\(\$mycall[[:space:]]*=[[:space:]]*\).*$/\1\"${CLUSTER_CALLSIGN}\";/" 
    < ${SPIDER_INSTALL_DIR}/perl/DXVars.pm.issue > ${SPIDER_INSTALL_DIR}/local/DXVars.pm
 
 # Remove leading# 
-sed -i "/\$dsn/s/^#*//g" ${SPIDER_INSTALL_DIR}/local/DXVars.pm
-sed -i "/\$dbuser/s/^#*//g" ${SPIDER_INSTALL_DIR}/local/DXVars.pm
-sed -i "/\$dbpass/s/^#*//g" ${SPIDER_INSTALL_DIR}/local/DXVars.pm
+sed -i "/\$dsn[[:space:]]*=/s/^#*//g" ${SPIDER_INSTALL_DIR}/local/DXVars.pm
+sed -i "/\$dbuser[[:space:]]*=/s/^#*//g" ${SPIDER_INSTALL_DIR}/local/DXVars.pm
+sed -i "/\$dbpass[[:space:]]*=/s/^#*//g" ${SPIDER_INSTALL_DIR}/local/DXVars.pm
 
 # clean stale lock file
 [ -f ${SPIDER_INSTALL_DIR}/local/cluster.lck ] && rm -f ${SPIDER_INSTALL_DIR}/local/cluster.lck
