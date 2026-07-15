@@ -15,8 +15,8 @@
 #0 * * * * run_cmd('ann local DXspider telnet mytelnet.xx 7300 at ' . cldate . ' ' . ztime)
 
 # Skimmers (At every minute)
-#* * * * * start_connect('sk0mmr') unless connected('sk0mmr')
-#* * * * * start_connect('sk1mmr') unless connected('sk1mmr')
+* * * * * start_connect('sk0mmr') unless connected('sk0mmr')
+* * * * * start_connect('sk1mmr') unless connected('sk1mmr')
 
 
 # AutoUpdate USDB (At 02:00 on Monday, Wednesday, and Friday)
@@ -44,7 +44,19 @@
 5 0 * 1-12 * spawn(q[find /spider/local_data/wwv -type f -mtime +1 -exec rm -f {} \;])
 
 # Blacklist. TOR & Others (At minute 30)
-30 * * * * spawn('cd /spider/local_data; wget -q http://www.dxspider.net/download/badip.torexit -O badip.torexit')
-30 * * * * spawn('cd /spider/local_data; wget -q http://www.dxspider.net/download/badip.torrelay -O badip.torrelay')
-30 * * * * spawn('cd /spider/local_data; wget -q http://www.dxspider.net/download/badip.global -O badip.global')
-31 * * * * run_cmd('load/badip')
+# badip
+30 * * * * spawn('cd /spider/local_data; wget -qN https://raw.githubusercontent.com/EA3CV/dxspider_info/main/download/badip.torexit')
+30 * * * * spawn('cd /spider/local_data; wget -qN https://raw.githubusercontent.com/EA3CV/dxspider_info/main/download/badip.torrelay')
+30 * * * * spawn('cd /spider/local_data; wget -qN https://raw.githubusercontent.com/EA3CV/dxspider_info/main/download/badip.global')
+30 * * * * spawn('cd /spider/local_data; wget -qN https://raw.githubusercontent.com/EA3CV/dxspider_info/main/download/badip.new')
+32 * * * * run_cmd('load/badip')
+
+# baddx, badspotter, badnode, badword (Daily from 01:33 to 01:38)
+33 1 * * * spawn('cd /spider/local_data; wget -qN https://raw.githubusercontent.com/EA3CV/dxspider_info/main/download/baddx.new')
+34 1 * * * run_cmd('load/baddx')
+35 1 * * * spawn('cd /spider/local_data; wget -qN https://raw.githubusercontent.com/EA3CV/dxspider_info/main/download/badspotter.new')
+36 1 * * * run_cmd('load/badspotter')
+37 1 * * * spawn('cd /spider/local_data; wget -qN https://raw.githubusercontent.com/EA3CV/dxspider_info/main/download/badnode.new')
+38 1 * * * run_cmd('load/badnode')
+39 1 * * * spawn('cd /spider/local_data; wget -qN https://raw.githubusercontent.com/EA3CV/dxspider_info/main/download/badword.new')
+40 1 * * * run_cmd('load/badwords')
