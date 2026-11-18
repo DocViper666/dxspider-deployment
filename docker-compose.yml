@@ -58,9 +58,13 @@ services:
       - cluster_local_data_data:/spider/local_data # For the Mojo branch
     ports:
       - ${CLUSTER_PORT}:${CLUSTER_PORT} # DXSpider Cluster
+      - ${CLUSTER_USERWEB_PORT}:${CLUSTER_USERWEB_PORT} # DXSpider Webinterface
+      - ${CLUSTER_ADMINWEB_PORT}:${CLUSTER_ADMINWEB_PORT} # DXSpider Admininterface
       - ${CLUSTER_SYSOP_PORT}:${CLUSTER_SYSOP_PORT} # Sysop Console via ttyd
     expose:
       - ${CLUSTER_PORT} # DXSpider Cluster
+      - ${CLUSTER_USERWEB_PORT} # DXSpider Webinterface
+      - ${CLUSTER_ADMINWEB_PORT} # DXSpider Admininterface
       - ${CLUSTER_SYSOP_PORT} # Sysop Console via ttyd
     restart: unless-stopped # Needed to make sure post git update to restart container
     logging:
