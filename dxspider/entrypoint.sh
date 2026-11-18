@@ -82,12 +82,14 @@ wget -O /spider/local_cmd/load/baddx.pl https://raw.githubusercontent.com/EA3CV/
 wget -O /spider/local_cmd/load/badspotter.pl https://raw.githubusercontent.com/EA3CV/dxspider_info/main/load/badspotter.pl
 
 
+# Start the dxspider in the background
 cd ${SPIDER_INSTALL_DIR}/perl && \
 ./create_sysop.pl && \
 ./cluster.pl &
 
 sleep 5 # Give time for the cluster to startup
 
+# Start the dxspider webinterface in the background
 cd ${SPIDER_INSTALL_DIR}/dxweb && \
 ./start.pl &
 
