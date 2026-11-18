@@ -32,7 +32,7 @@ ARG SPIDER_UID=${SPIDER_UID:-1000}
 RUN apk update \
     && apk add \
     gcc \
-    git \ 
+    git \
     make \
     musl-dev \
     ncurses-dev \
@@ -54,19 +54,19 @@ RUN apk update \
     perl-authen-sasl \
     perl-net-smtp-ssl \
     perl-io-socket-ssl \
-    perl-net-telnet \ 
+    perl-net-telnet \
     perl-timedate \
     perl-yaml-libyaml \
-    perl-test-simple \ 
-    perl-curses \ 
+    perl-test-simple \
+    perl-curses \
     perl-app-cpanminus \
     perl-mojolicious \
     perl-math-round \
     perl-json \
     mysql-client \
     mysql-dev \
-    perl-dbd-mysql \ 
-    perl-dbi musl \ 
+    perl-dbd-mysql \
+    perl-dbi musl \
     perl-cpan-sqlite \
     perl-dbd-sqlite \
     perl-net-cidr-lite \
