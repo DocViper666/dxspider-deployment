@@ -42,7 +42,17 @@ RUN apk update \
     netcat-openbsd \
     perl-db_file \
     perl-dev \
+    perl-ev \
+    perl-json-xs \
+    perl-io-socket-inet6 \
+    perl-archive-zip \
+    perl-mailtools \
+    perl-email-sender \
     perl-digest-sha1 \
+    perl-libwww \
+    perl-io-tty \
+    perl-authen-sasl \
+    perl-net-smtp-ssl \
     perl-io-socket-ssl \
     perl-net-telnet \ 
     perl-timedate \
@@ -58,6 +68,7 @@ RUN apk update \
     perl-dbd-mysql \ 
     perl-dbi musl \ 
     perl-cpan-sqlite \
+    perl-dbd-sqlite \
     perl-net-cidr-lite \
     perl-file-copy-recursive \
     make \
@@ -66,7 +77,7 @@ RUN apk update \
     mysql-dev \
     gcc \
     ttyd \
-    && cpanm --no-wget Data::Structure::Util \
+    && cpanm --no-wget Data::Structure::Util HTML::Parser \
     && adduser -D -u ${SPIDER_UID} -h ${SPIDER_INSTALL_DIR} ${SPIDER_USERNAME} \
     && git config --global --add safe.directory ${SPIDER_INSTALL_DIR} \
     && git clone -b ${SPIDER_VERSION} ${SPIDER_GIT_REPOSITORY} ${SPIDER_INSTALL_DIR} \
