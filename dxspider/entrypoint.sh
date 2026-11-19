@@ -74,12 +74,12 @@ sed -i "/\$dbpass[[:space:]]*=/s/^#*//g" ${SPIDER_INSTALL_DIR}/local/DXVars.pm
 # Mojo has another lck file location
 [ -f ${SPIDER_INSTALL_DIR}/local_data/cluster.lck ] && rm -f ${SPIDER_INSTALL_DIR}/local_data/cluster.lck
 
-# Get latest management scripts from Kin EA3CV
-mkdir -p /spider/local_cmd/load
-wget -O /spider/local_cmd/load/badwords.pl https://raw.githubusercontent.com/EA3CV/dxspider_info/main/load/badwords.pl
-wget -O /spider/local_cmd/load/badnode.pl https://raw.githubusercontent.com/EA3CV/dxspider_info/main/load/badnode.pl
-wget -O /spider/local_cmd/load/baddx.pl https://raw.githubusercontent.com/EA3CV/dxspider_info/main/load/baddx.pl
-wget -O /spider/local_cmd/load/badspotter.pl https://raw.githubusercontent.com/EA3CV/dxspider_info/main/load/badspotter.pl
+# Get latest management scripts from Kin EA3CV - from 2026-12 onward included in default dxspider.
+# mkdir -p /spider/local_cmd/load
+# wget -O /spider/local_cmd/load/badwords.pl https://raw.githubusercontent.com/EA3CV/dxspider_info/main/load/badwords.pl
+# wget -O /spider/local_cmd/load/badnode.pl https://raw.githubusercontent.com/EA3CV/dxspider_info/main/load/badnode.pl
+# wget -O /spider/local_cmd/load/baddx.pl https://raw.githubusercontent.com/EA3CV/dxspider_info/main/load/baddx.pl
+# wget -O /spider/local_cmd/load/badspotter.pl https://raw.githubusercontent.com/EA3CV/dxspider_info/main/load/badspotter.pl
 
 
 # Start the dxspider in the background
